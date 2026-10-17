@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page Recover 2</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#080b14;
+  color:#fff;
+}
+header{
+  padding:20px;
+  border-bottom:1px solid #252b3b;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo{font-size:22px;font-weight:bold}
+.logo span{color:#8c72ff}
+.container{
+  max-width:540px;
+  margin:35px auto;
+  padding:20px;
+}
+.card{
+  background:#111625;
+  border:1px solid #292f44;
+  border-radius:20px;
+  padding:25px;
+  box-shadow:0 15px 50px #0005;
+}
+.badge{
+  display:inline-block;
+  padding:7px 12px;
+  border-radius:20px;
+  background:#252044;
+  color:#b5a5ff;
+  font-size:12px;
+}
+h1{font-size:28px;line-height:1.3}
+p{color:#aab2c5;line-height:1.7}
+button{
+  width:100%;
+  border:0;
+  border-radius:11px;
+  padding:15px;
+  margin-top:12px;
+  background:linear-gradient(100deg,#7657ff,#a05cff);
+  color:white;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+}
+button.secondary{
+  background:#202638;
+  border:1px solid #353d53;
+}
+input,select,textarea{
+  width:100%;
+  margin:9px 0 15px;
+  padding:14px;
+  background:#090e1a;
+  border:1px solid #333b50;
+  border-radius:10px;
+  color:white;
+  font-size:15px;
+}
+label{font-size:13px;color:#d9deeb}
+.hidden{display:none}
+.progress{
+  height:7px;
+  background:#282e40;
+  border-radius:20px;
+  margin:20px 0;
+  overflow:hidden;
+}
+.bar{
+  height:100%;
+  width:0;
+  background:linear-gradient(90deg,#7657ff,#bc80ff);
+  transition:width .5s;
+}
+.steptext{
+  display:flex;
+  justify-content:space-between;
+  font-size:12px;
+  color:#b5bdd0;
+}
+.stat{
+  background:#0b1020;
+  border:1px solid #292f44;
+  padding:15px;
+  border-radius:12px;
+  margin-top:12px;
+}
+.stat strong{font-size:23px;color:#a994ff}
+footer{text-align:center;color:#707b92;font-size:12px;padding:25px}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">PAGE <span>RECOVER</span></div>
+  <div style="font-size:12px;color:#9ca6bb">PR • 2026</div>
+</header>
+
+<div class="container">
+
+<!-- PAGE 1 -->
+<section class="card page" id="page1">
+  <span class="badge">INTERACTIVE DEMO</span>
+  <h1>Account Recovery<br>Progress Center</h1>
+  <p>
+    Explore a demonstration of a social media account recovery
+    workflow. This website is a demo only and is not affiliated
+    with Instagram, Meta, or any other social media platform.
+    It cannot submit appeals or recover accounts.
+  </p>
+
+  <div class="stat">
+    <strong>100+</strong>
+    <p style="margin-bottom:0">Reports — illustrative demo counter, not verified submissions.</p>
+  </div>
+
+  <div class="stat">
+    <strong>10 Steps</strong>
+    <p style="margin-bottom:0">Explore the complete demonstration workflow.</p>
+  </div>
+
+  <button onclick="go(2)">Agree & Continue</button>
+  <button class="secondary" onclick="go(11)">Page Recover</button>
+  <button class="secondary" onclick="go(12)">View Statistics</button>
+</section>
+
+<!-- PAGE 2 -->
+<section class="card page hidden" id="page2">
+  <span class="badge">STEP 1 OF 10</span>
+  <h1>Select Platform</h1>
+  <p>Choose the platform for this demonstration.</p>
+  <label>Social media platform</label>
+  <select id="platform">
+    <option>Instagram</option>
+    <option>Facebook</option>
+    <option>TikTok</option>
+    <option>YouTube</option>
+    <option>X</option>
+    <option>Other</option>
+  </select>
+  <button onclick="go(3)">Continue →</button>
+  <button class="secondary" onclick="go(1)">Back</button>
+</section>
+
+<!-- PAGE 3 -->
+<section class="card page hidden" id="page3">
+  <span class="badge">STEP 2 OF 10</span>
+  <h1>Account Information</h1>
+  <p>Enter sample information to explore the demo. Never enter your password.</p>
+  <label>Username</label>
+  <input id="username" placeholder="@yourusername">
+  <label>Public profile URL (optional)</label>
+  <input id="profile" placeholder="https://www.instagram.com/...">
+  <button onclick="go(4)">Continue →</button>
+  <button class="secondary" onclick="go(2)">Back</button>
+</section>
+
+<!-- PAGE 4 -->
+<section class="card page hidden" id="page4">
+  <span class="badge">STEP 3 OF 10</span>
+  <h1>Contact Information</h1>
+  <p>Use fictional contact details for this demonstration.</p>
+  <label>Email address</label>
+  <input type="email" id="email" placeholder="example@email.com">
+  <label>Phone number (optional)</label>
+  <input type="tel" id="phone" placeholder="+91 XXXXX XXXXX">
+  <button onclick="go(5)">Continue →</button>
+  <button class="secondary" onclick="go(3)">Back</button>
+</section>
+
+<!-- PAGE 5 -->
+<section class="card page hidden" id="page5">
+  <span class="badge">STEP 4 OF 10</span>
+  <h1>Suspension Reason</h1>
+  <p>Select the reason that best describes the situation.</p>
+  <label>Possible reason</label>
+  <select id="reason">
+    <option>Community Guidelines</option>
+    <option>Copyright</option>
+    <option>Suspicious Activity</option>
+    <option>Impersonation</option>
+    <option>Spam</option>
+    <option>Age or Identity Verification</option>
+    <option>Not Sure</option>
+    <option>Other</option>
+  </select>
+  <label>Additional details (optional)</label>
+  <textarea id="details" rows="3" placeholder="Describe the issue..."></textarea>
+  <button onclick="go(6)">Continue →</button>
+  <button class="secondary" onclick="go(4)">Back</button>
+</section>
+
+<!-- PAGE 6 -->
+<section class="card page hidden" id="page6">
+  <span class="badge">STEP 5 OF 10</span>
+  <h1>Screenshot Evidence</h1>
+  <p>Select a screenshot to preview it locally. This demo does not upload it to a server.</p>
+  <label>Choose screenshot</label>
+  <input type="file" id="screenshot" accept="image/*" onchange="previewImage(event)">
+  <img id="preview" class="hidden" style="width:100%;border-radius:10px;margin-top:10px" alt="Screenshot preview">
+  <button onclick="go(7)">Continue →</button>
+  <button class="secondary" onclick="go(5)">Back</button>
+</section>
+
+<!-- PAGE 7 -->
+<section class="card page hidden" id="page7">
+  <span class="badge">STEP 6 OF 10</span>
+  <h1>Review Information</h1>
+  <p>Review the sample details entered during this session.</p>
+  <div class="stat" id="review"></div>
+  <button onclick="go(8)">Confirm Demo Details →</button>
+  <button class="secondary" onclick="go(6)">Back</button>
+</section>
+
+<!-- PAGE 8 -->
+<section class="card page hidden" id="page8">
+  <span class="badge">STEP 7 OF 10</span>
+  <h1>Demo Progress Check</h1>
+  <p>This animation illustrates a progress indicator. It does not check an actual account or contact any platform.</p>
+  <div style="text-align:center;padding:20px">
+    <div id="spinner" style="font-size:54px">◌</div>
+    <h2 id="loadingText">Preparing demo...</h2>
+    <div class="progress"><div class="bar" id="loadingBar"></div></div>
+    <p id="loadingPercent">0%</p>
+  </div>
+  <button id="next8" class="hidden" onclick="go(9)">Continue →</button>
+  <button class="secondary" onclick="go(7)">Back</button>
+</section>
+
+<!-- PAGE 9 -->
+<section class="card page hidden" id="page9">
+  <span class="badge">STEP 8 OF 10</span>
+  <h1>Recovery Checklist</h1>
+  <p>Suggested actions you can review directly with the platform.</p>
+  <div class="stat">✓ Check the official app notification.</div>
+  <div class="stat">✓ Review the platform's official appeal options.</div>
+  <div class="stat">✓ Secure your email and account.</div>
+  <div class="stat">✓ Never share your password or verification code.</div>
+  <button onclick="go(10)">Continue →</button>
+  <button class="secondary" onclick="go(8)">Back</button>
+</section>
+
+<!-- PAGE 10 -->
+<section class="card page hidden" id="page10">
+  <span class="badge">STEP 9 OF 10</span>
+  <h1>Next Steps</h1>
+  <p>Account reviews vary by platform and individual circumstances. No specific recovery outcome or timeline can be guaranteed.</p>
+  <div class="stat">
+    <strong>Official Support</strong>
+    <p>Use the platform's official Help Center to check your case.</p>
+  </div>
+  <button onclick="go(13)">View 15-Day Timeline →</button>
+  <button class="secondary" onclick="go(9)">Back</button>
+</section>
+
+<!-- PAGE 11 -->
+<section class="card page hidden" id="page11">
+  <span class="badge">PAGE RECOVER</span>
+  <h1>Welcome Back</h1>
+  <p>This shortcut returns you to the beginning of the demonstration.</p>
+  <button onclick="go(1)">Return to Start</button>
+</section>
+
+<!-- PAGE 12 -->
+<section class="card page hidden" id="page12">
+  <span class="badge">DEMO STATISTICS</span>
+  <h1>Website Statistics</h1>
+  <p>Illustrative interface figures only. These are not real recovery statistics, verified outcomes, or predictions.</p>
+  <div class="stat"><strong>10</strong><p>Demonstration steps</p></div>
+  <div class="stat"><strong>95%+</strong><p>Example display value only — not an actual recovery success rate.</p></div>
+  <div class="stat"><strong>100+</strong><p>Example report counter, not verified reports.</p></div>
+  <button onclick="go(1)">Back to Home</button>
+</section>
+
+<!-- PAGE 13 -->
+<section class="card page hidden" id="page13">
+  <span class="badge">STEP 10 OF 10</span>
+  <h1>15-Day Timeline</h1>
+  <p>This is an illustrative timeline, not an official review deadline.</p>
+  <div class="progress"><div class="bar" style="width:100%"></div></div>
+  <div class="stat"><strong>Day 1–3</strong><p>Check the official platform notification.</p></div>
+  <div class="stat"><strong>Day 4–7</strong><p>Review the status using official support channels.</p></div>
+  <div class="stat"><strong>Day 8–14</strong><p>Follow any instructions provided by the platform.</p></div>
+  <div class="stat"><strong>Day 15</strong><p>Check the official account status again. The review may take more or less time.</p></div>
+  <button onclick="go(1)">Finish</button>
+</section>
+
+</div>
+
+<footer>
+  Page Recover 2 · Independent demonstration · Not affiliated with Meta or Instagram
+</footer>
+
+<script>
+function go(n){
+  document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));
+  const target=document.getElementById('page'+n);
+  if(target) target.classList.remove('hidden');
+  window.scrollTo({top:0,behavior:'smooth'});
+
+  if(n===7) showReview();
+  if(n===8) startLoading();
+}
+
+function previewImage(event){
+  const file=event.target.files[0];
+  if(!file)return;
+  if(!file.type.startsWith('image/')){
+    alert('Please select an image file.');
+    return;
+  }
+  const reader=new FileReader();
+  reader.onload=e=>{
+    const img=document.getElementById('preview');
+    img.src=e.target.result;
+    img.classList.remove('hidden');
+  };
+  reader.readAsDataURL(file);
+}
+
+function showReview(){
+  const val=id=>document.getElementById(id).value||'Not provided';
+  document.getElementById('review').innerHTML=
+    '<p><b>Platform:</b> '+escapeHTML(val('platform'))+'</p>'+
+    '<p><b>Username:</b> '+escapeHTML(val('username'))+'</p>'+
+    '<p><b>Email:</b> '+escapeHTML(val('email'))+'</p>'+
+    '<p><b>Phone:</b> '+escapeHTML(val('phone'))+'</p>'+
+    '<p><b>Reason:</b> '+escapeHTML(val('reason'))+'</p>'+
+    '<p><b>Details:</b> '+escapeHTML(val('details'))+'</p>';
+}
+
+function escapeHTML(value){
+  return String(value).replace(/[&<>"']/g,c=>({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  })[c]);
+}
+
+let timer;
+function startLoading(){
+  clearInterval(timer);
+  let progress=0;
+  const bar=document.getElementById('loadingBar');
+  const percent=document.getElementById('loadingPercent');
+  const text=document.getElementById('loadingText');
+  const spinner=document.getElementById('spinner');
+  const next=document.getElementById('next8');
+
+  bar.style.width='0%';
+  percent.textContent='0%';
+  text.textContent='Preparing demo...';
+  spinner.textContent='◌';
+  next.classList.add('hidden');
+
+  timer=setInterval(()=>{
+    progress+=10;
+    bar.style.width=progress+'%';
+    percent.textContent=progress+'%';
+
+    if(progress>=100){
+      clearInterval(timer);
+      spinner.textContent='✓';
+      text.textContent='Demo Check Complete';
+      next.classList.remove('hidden');
+    }
+  },500);
+}
+</script>
+
+</body>
+</html>
